@@ -1,8 +1,5 @@
-FROM ckeyer/obc:base
+FROM openblockchain/baseimage:0.0.9
 
-RUN git clone https://github.com/hyperledger/fabric.git $GOPATH/src/github.com/hyperledger/fabric && \
-	cd $GOPATH/src/github.com/hyperledger/fabric/ && \
-	go build -o $GOPATH/bin/peer && \
-	go build -o $GOPATH/bin/obc-ca ./membersrvc/server.go 
-
-WORKDIR  $GOPATH/src/github.com/hyperledger/fabric/
+ENV GOPATH=/opt/gopath
+ENV GOROOT=/opt/go
+ENV PATH=$PATH:$GOROOT/bin:$GOPATH/bin
