@@ -1,7 +1,8 @@
 FROM alpine:edge
 MAINTAINER ckeyer <me@ckeyer.com>
 
-RUN apk add --update rocksdb --update-cache --repository http://dl-4.alpinelinux.org/alpine/edge/testing && \
+RUN apk add --update rocksdb-dev --update-cache --repository http://dl-4.alpinelinux.org/alpine/edge/testing && \
+	apk add --update sqlite-dev --update-cache --repository http://dl-4.alpinelinux.org/alpine/edge/testing && \ 
 	apk add --update snappy && \ 
 	apk add --update libbz2 && \
 	apk add --update zlib && \
